@@ -17,6 +17,7 @@
 <meta name="twitter:title" content="Bandejitaapaisaa | Artista gráfico">
 <meta name="twitter:description" content="Modelos 3D, renders e ilustraciones de Matthew.">
 
+<link rel="preconnect" href="https://fonts.googleapis.com"><link rel="preconnect" href="https://fonts.gstatic.com" crossorigin><link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Sora:wght@500;700;800&display=swap">
 <style>
 :root{--bg:#080D18;--bg2:#0D1526;--card:#111D33;--ac:#4C8DFF;--ac2:#77B7FF;--tx:#F3F6FC;--tx2:#A4B0C4;--bd:#23324B;--r:16px;box-sizing:border-box;padding-top:env(safe-area-inset-top,0px);padding-bottom:env(safe-area-inset-bottom,0px)}
 *,*:before,*:after{box-sizing:inherit}
@@ -221,10 +222,50 @@ footer{position:relative}footer:before{top:-1px;bottom:auto;animation-duration:9
 .pv3 .v3d-now{left:10px;top:10px;padding:5px 10px;font-size:.75rem}
 .pv3-l{position:absolute;inset:0;z-index:5}
 .pv3 .tx{display:block}
+/* ===== V2: AURA + ANIMACIONES ===== */
+:root{--h:230;--x:50vw;--y:30vh;--s:1}
+html{scrollbar-color:#2a4272 var(--bg)}
+::selection{background:#4C8DFF66;color:#fff}
+h1,h2,h3,.logo,.gate-t{font-family:Sora,Inter,system-ui,-apple-system,"Segoe UI",sans-serif}
+.aura{position:fixed;inset:0;z-index:-1;pointer-events:none;mix-blend-mode:screen;background:radial-gradient(circle calc(400px*var(--s)) at var(--x) var(--y),hsl(var(--h) 100% 62%/.3),hsl(calc(var(--h) + 40) 100% 60%/.1) 45%,transparent 72%)}
+.dots{position:fixed;inset:0;z-index:-1;pointer-events:none;background-image:radial-gradient(hsl(var(--h) 100% 78%/.7) 1.2px,transparent 1.7px);background-size:30px 30px;-webkit-mask-image:radial-gradient(circle 230px at var(--x) var(--y),#000,transparent);mask-image:radial-gradient(circle 230px at var(--x) var(--y),#000,transparent)}
+.orbs{position:fixed;inset:0;z-index:-1;pointer-events:none;overflow:hidden}
+.orb{position:absolute;border-radius:50%;filter:blur(80px);opacity:.28;animation:orb 24s ease-in-out infinite alternate}
+.orb:nth-child(1){width:360px;height:360px;left:-80px;top:55%;background:#4C8DFF}
+.orb:nth-child(2){width:300px;height:300px;right:-60px;top:8%;background:#8b6cff;animation-duration:30s}
+.orb:nth-child(3){width:240px;height:240px;left:45%;bottom:-90px;background:#2fd0ff;animation-duration:27s}
+@keyframes orb{to{transform:translate(70px,-60px) scale(1.2)}}
+.prog{position:fixed;top:0;left:0;width:100%;height:3px;z-index:60;transform-origin:0 50%;transform:scaleX(var(--p,0));background:linear-gradient(90deg,var(--ac),#b48cff,var(--ac2));box-shadow:0 0 12px var(--ac)}
+.gate{background:radial-gradient(circle calc(460px*var(--s)) at var(--x) var(--y),hsl(var(--h) 100% 60%/.32),transparent 70%),var(--bg)}
+.gate-t{animation:flt 6s ease-in-out infinite}
+h1{font-size:clamp(2rem,5.4vw,3.6rem);font-weight:800;background:linear-gradient(110deg,#fff 0%,var(--ac2) 25%,#b79bff 50%,var(--ac2) 75%,#fff 100%);background-size:250% 100%;-webkit-background-clip:text;background-clip:text;color:transparent;animation:shine 9s linear infinite}
+@keyframes shine{to{background-position:-250% 0}}
+header{background:#080D18b3;backdrop-filter:blur(16px) saturate(1.4)}
+nav a:hover{transform:translateY(-1px)}
+.btn{position:relative;overflow:hidden;isolation:isolate}
+.btn:before{content:"";position:absolute;inset:0;z-index:-1;background:radial-gradient(130px at var(--mx,50%) var(--my,50%),#77B7FF55,transparent);opacity:0;transition:opacity .25s}
+.btn:hover:before{opacity:1}
+.btn.p:after{content:"";position:absolute;top:0;bottom:0;width:40%;left:-60%;background:linear-gradient(100deg,transparent,#ffffff55,transparent);transform:skewX(-20deg);animation:sweep 4.5s ease-in-out infinite}
+@keyframes sweep{60%,100%{left:130%}}
+.card,.tcard,.studio,.pill{position:relative}
+.card:after,.tcard:after,.studio:after,.pill:after{content:"";position:absolute;inset:0;z-index:2;pointer-events:none;border-radius:inherit;background:radial-gradient(280px at var(--mx,50%) var(--my,50%),hsl(var(--h) 100% 70%/.2),transparent 70%);opacity:0;transition:opacity .3s}
+.card:hover:after,.tcard:hover:after,.studio:hover:after,.pill:hover:after{opacity:1}
+.card{transition:transform .2s ease-out,border-color .3s,box-shadow .3s}
+.card:hover{transform:perspective(900px) translateY(-6px) rotateX(var(--rx,0deg)) rotateY(var(--ry,0deg))}
+.tcard,.studio,.pill{transition:transform .3s,border-color .3s,box-shadow .3s}
+.tcard:hover,.studio:hover,.pill:hover{transform:translateY(-4px);border-color:#4C8DFF88;box-shadow:0 14px 36px #0007,0 0 22px #4C8DFF33}
+.studio:hover .av{box-shadow:0 0 28px #4C8DFF88;transform:scale(1.06)}
+.av{transition:.3s}
+.grid>*,.mas>*,.tgrid>*,.studios>*,.pills>*{animation:rise .75s cubic-bezier(.2,.7,.2,1) backwards;animation-delay:calc(var(--i,0)*80ms + 120ms)}
+@keyframes rise{from{opacity:0;transform:translateY(28px) scale(.96)}}
+.mute:not(.is-muted):after{content:"";position:absolute;inset:-1px;border-radius:50%;border:1px solid var(--ac2);animation:ping 2.4s ease-out infinite;pointer-events:none}
+@keyframes ping{from{transform:scale(1);opacity:.6}to{transform:scale(1.7);opacity:0}}
+footer{background:radial-gradient(60% 120% at 50% 130%,#4C8DFF2a,transparent),var(--bg2)}
 @media(prefers-reduced-motion:reduce){*,*:before,*:after{animation:none!important;transition:none!important;scroll-behavior:auto!important}}
 </style>
 </head>
 <body>
+<div class="aura" aria-hidden="true"></div><div class="dots" aria-hidden="true"></div><div class="orbs" aria-hidden="true"><i class="orb"></i><i class="orb"></i><i class="orb"></i></div><div class="prog" aria-hidden="true"></div>
 <div class="gate" id="gate" role="dialog" aria-modal="true" aria-label="Entrar al sitio"><div class="gate-in"><div class="gate-t">Bandejita<b>apaisaa</b></div><button class="btn p gate-b" id="ge" type="button">Click to enter</button></div></div>
 <header><div class="wrap nav">
 <a class="logo" href="#/" aria-label="Bandejitaapaisaa, inicio">Bandejita<b>apaisaa</b></a>
@@ -380,6 +421,27 @@ $("#xl").href=SOCIAL_LINKS.x;
 $("#dc").onclick=async()=>{const b=$("#dc"),t="Discord: "+SOCIAL_LINKS.discord;try{await navigator.clipboard.writeText(SOCIAL_LINKS.discord);b.textContent="¡Usuario copiado!"}catch(e){b.textContent=SOCIAL_LINKS.discord}setTimeout(()=>b.textContent=t,2200)};
 $("#cp").textContent=`© ${new Date().getFullYear()} Bandejitaapaisaa. Todos los derechos reservados.`;
 route();
+</script>
+<script>
+/* ===== V2: aura que sigue al mouse, brillo en tarjetas, barra de progreso ===== */
+(()=>{const R=document.documentElement,rm=matchMedia("(prefers-reduced-motion:reduce)").matches;
+let tx=innerWidth*.5,ty=innerHeight*.3,x=tx,y=ty,s=1,ts=1,ptr=false,last=0;
+addEventListener("pointermove",e=>{if(e.pointerType==="touch")return;ptr=true;tx=e.clientX;ty=e.clientY;last=performance.now()},{passive:true});
+addEventListener("pointerdown",()=>ts=1.5);addEventListener("pointerup",()=>ts=1);
+function set(t){R.style.setProperty("--x",x.toFixed(1)+"px");R.style.setProperty("--y",y.toFixed(1)+"px");R.style.setProperty("--s",s.toFixed(3));R.style.setProperty("--h",(255+55*Math.sin(t*.35)).toFixed(1))}
+function frame(now){const t=now/1000;
+ if(!ptr||now-last>6000){tx=innerWidth*(.5+.32*Math.sin(t*.25));ty=innerHeight*(.4+.25*Math.cos(t*.31))}
+ x+=(tx-x)*.09;y+=(ty-y)*.09;s+=(ts-s)*.1;set(t);requestAnimationFrame(frame)}
+if(rm)set(0);else requestAnimationFrame(frame);
+const fine=matchMedia("(pointer:fine)").matches;
+document.addEventListener("pointermove",e=>{const c=e.target.closest&&e.target.closest(".card,.tcard,.studio,.pill,.btn");if(!c)return;
+ const r=c.getBoundingClientRect(),px=e.clientX-r.left,py=e.clientY-r.top;c.style.setProperty("--mx",px+"px");c.style.setProperty("--my",py+"px");
+ if(fine&&!rm&&c.classList.contains("card")&&!c.classList.contains("pv3")){c.style.setProperty("--ry",((px/r.width-.5)*6).toFixed(2)+"deg");c.style.setProperty("--rx",((.5-py/r.height)*6).toFixed(2)+"deg")}});
+document.addEventListener("pointerout",e=>{const c=e.target.closest&&e.target.closest(".card");if(c&&!c.contains(e.relatedTarget)){c.style.setProperty("--rx","0deg");c.style.setProperty("--ry","0deg")}});
+new MutationObserver(()=>document.querySelectorAll("#app .grid,#app .mas,#app .tgrid,#app .studios,#app .pills").forEach(g=>[...g.children].forEach((el,i)=>el.style.setProperty("--i",i)))).observe(document.querySelector("#app"),{childList:true});
+const pg=()=>{const m=document.documentElement.scrollHeight-innerHeight;R.style.setProperty("--p",m>0?Math.min(1,scrollY/m).toFixed(4):0)};
+addEventListener("scroll",pg,{passive:true});addEventListener("hashchange",pg);pg();
+})();
 </script>
 </body>
 </html>
