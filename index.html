@@ -77,7 +77,7 @@ h2{font-size:clamp(2rem,4.6vw,3.2rem);letter-spacing:-.035em;line-height:1.05;ma
 .hero-bg{position:absolute;inset:0;z-index:0;background:var(--bg2)}
 .hero-bg img,.hero-bg .ph{position:absolute;inset:0;width:100%;height:100%;object-fit:cover;animation:kb 26s ease-in-out infinite alternate}
 @keyframes kb{to{transform:scale(1.12) translate(-1.5%,1%)}}
-.hero-bg:after{content:"";position:absolute;inset:0;background:linear-gradient(180deg,#070B1699,#070B1600 32%,#070B16dd 88%),linear-gradient(90deg,#070B16d0,#070B1600 70%),radial-gradient(60% 60% at 100% 0,#FF8A5B26,transparent)}
+.hero-bg:after{content:"";position:absolute;inset:0;background:linear-gradient(180deg,#070B168c,#070B1600 30%,#070B16c4 90%),linear-gradient(90deg,#070B16b0,#070B1600 65%),radial-gradient(60% 60% at 100% 0,#FF8A5B26,transparent)}
 .hero-c,.hero-meta{position:relative;z-index:2}
 .eyebrow{display:inline-flex;align-items:center;gap:10px;margin:0;font-size:.85rem;letter-spacing:.12em;text-transform:uppercase;color:var(--wm2);border:1px solid #FF8A5B55;background:#FF8A5B14;backdrop-filter:blur(8px);padding:7px 16px;border-radius:99px}
 .eyebrow:before{content:"";width:8px;height:8px;border-radius:50%;background:var(--wm);box-shadow:0 0 12px var(--wm);animation:pls 1.8s ease-in-out infinite}
@@ -329,12 +329,34 @@ footer h2{font-size:clamp(2.2rem,6vw,5rem)}
 @media(min-width:901px){.v3d-stage{min-height:clamp(480px,72vh,820px)}.v3d{grid-template-columns:minmax(0,1fr) 340px}}
 /* reproductor: Spotify */
 .sp-b{border-color:#1DB95466}.sp-b:hover{border-color:#1DB954;box-shadow:0 0 16px #1DB95455}
+/* imágenes y secciones */
+.mas{--rh:calc(720px / var(--c,3));display:flex;flex-wrap:wrap;align-items:flex-start;gap:16px}
+.mas:after{content:"";flex-grow:1000000}
+.mas>.work{margin:0;min-width:0;flex:calc(var(--ar)*100) 1 calc(var(--ar)*var(--rh))}
+@media(max-width:600px){.mas>.work{flex-basis:100%}}
+.work{border-radius:18px;box-shadow:inset 0 0 0 1px #ffffff12}
+.work img,.card .im img{opacity:0;transition:opacity .7s,transform .7s}
+.work img.ld,.card .im img.ld{opacity:1}
+.cap2{background:linear-gradient(transparent,#070B16f2)}
+.feat{display:grid;grid-template-columns:2fr 1fr;grid-template-rows:1fr 1fr;gap:16px}
+.feat .work{margin:0;min-height:0;aspect-ratio:auto!important}
+.feat .work:first-child{grid-row:span 2;aspect-ratio:16/9!important}
+@media(max-width:760px){.feat{grid-template-columns:1fr;grid-template-rows:none}.feat .work,.feat .work:first-child{grid-row:auto;aspect-ratio:16/9!important}}
+.cats .card{position:relative;aspect-ratio:4/5;border-radius:20px}
+.cats .card .im{position:absolute;inset:0;aspect-ratio:auto}
+.cats .card .tx{position:absolute;inset:auto 0 0;padding:70px 20px 20px;background:linear-gradient(transparent,#070B16f5 70%)}
+.cats .card h3{font-size:1.35rem}
+@media(max-width:520px){.cats .card{aspect-ratio:16/11}}
+.lb{background:#03060cf2;backdrop-filter:blur(14px)}
+.lb .st{max-height:82vh}.lb .st img,.lb .st video{max-height:82vh;box-shadow:0 30px 80px #000a}
+.lb .cap strong{font-size:1.1rem}
+.ct{display:block;margin-bottom:6px;font-size:.78rem;letter-spacing:.14em;color:var(--wm2)}
 @media(prefers-reduced-motion:reduce){*,*:before,*:after{animation:none!important;transition:none!important;scroll-behavior:auto!important}}
 </style>
 </head>
 <body>
 <div class="waves" aria-hidden="true"><i class="wv"></i><i class="wv"></i><i class="wv"></i></div><div class="bubs" id="bubs" aria-hidden="true"></div>
-<div class="gate" id="gate" role="dialog" aria-modal="true" aria-label="Entrar al sitio"><div class="gate-in"><p class="eyebrow">Portafolio de renders y 3D</p><div class="gate-t">Bandejita<b>Paisa</b></div><button class="btn p gate-b" id="ge" type="button">Entrar al portafolio</button><small class="gate-n">♪ Este sitio incluye música de fondo</small></div></div>
+<div class="gate" id="gate" role="dialog" aria-modal="true" aria-label="Entrar al sitio"><div class="gate-in"><div class="gate-t">Bandejita<b>Paisa</b></div><button class="btn p gate-b" id="ge" type="button">Entrar al portafolio</button><small class="gate-n">♪ Este sitio incluye música de fondo</small></div></div>
 <i class="sp" id="sp" aria-hidden="true"></i>
 <header><a class="logo" href="#/" aria-label="BandejitaPaisa, inicio">Bandejita<b>Paisa</b></a><span class="cur" id="cur" aria-hidden="true"></span><button class="menu" id="bg" aria-expanded="false" aria-controls="nv"><span>Menú</span><span class="ml" aria-hidden="true"><i></i><i></i></span></button></header>
 <nav id="nv" aria-label="Principal"><ol id="nl"></ol></nav>
@@ -409,9 +431,9 @@ const A=f=>!f?"":(/^(https?:)?\/\//.test(f)||f.startsWith("assets/")?f:"assets/"
 function ph(p){const w=p.w*100,h=p.h*100,k=p.id.length+p.id.charCodeAt(1);
  return `<svg class="ph" viewBox="0 0 ${w} ${h}" role="img" aria-label="${esc(p.alt)}" xmlns="http://www.w3.org/2000/svg"><defs><linearGradient id="g${p.id}" x1="0" y1="0" x2="1" y2="1"><stop offset="0" stop-color="#16294b"/><stop offset="1" stop-color="#0b1426"/></linearGradient><radialGradient id="r${p.id}" cx=".35" cy=".3"><stop offset="0" stop-color="#77B7FF" stop-opacity=".55"/><stop offset="1" stop-color="#4C8DFF" stop-opacity="0"/></radialGradient></defs><rect width="${w}" height="${h}" fill="url(#g${p.id})"/><circle cx="${w*(.35+k%3*.12)}" cy="${h*.45}" r="${Math.min(w,h)*.3}" fill="url(#r${p.id})"/><text x="50%" y="${h-18}" fill="#A4B0C4" font-size="${Math.max(14,w/28)}" text-anchor="middle" font-family="sans-serif">Espacio de demostración</text></svg>`}
 function media(p,eager){const s=A(p.thumbnail||p.image);if(!s)return ph(p);
- return `<img src="${esc(s)}" alt="${esc(p.alt)}" width="${p.w*100}" height="${p.h*100}" ${eager?"":'loading="lazy"'} decoding="async" onerror="this.outerHTML='<div class=spin>No se pudo cargar la imagen</div>'">`}
+ return `<img src="${esc(s)}" alt="${esc(p.alt)}" width="${p.w*100}" height="${p.h*100}" ${eager?"":'loading="lazy"'} decoding="async" onload="this.classList.add('ld')" onerror="this.outerHTML='<div class=spin>No se pudo cargar la imagen</div>'">`}
 function workHTML(p,i){const v=p.type==="video",t=p.title||p.description;
- return `<button class="work" data-id="${p.id}" data-i="${i}" style="aspect-ratio:${p.w}/${p.h}" aria-label="Ampliar: ${esc(t)}">${media(p)}${v?'<span class="play" aria-hidden="true"><span>▶</span></span>':""}<span class="cap2"><b>${esc(t)}</b>${p.title&&p.description?`<small>${esc(p.description)}</small>`:""}<i>${v?"Reproducir":"Ampliar"}</i></span></button>`}
+ return `<button class="work" data-id="${p.id}" data-i="${i}" style="aspect-ratio:${p.w}/${p.h};--ar:${(p.w/p.h).toFixed(3)}" aria-label="Ampliar: ${esc(t)}">${media(p)}${v?'<span class="play" aria-hidden="true"><span>▶</span></span>':""}<span class="cap2"><b>${esc(t)}</b>${p.title&&p.description?`<small>${esc(p.description)}</small>`:""}<i>${v?"Reproducir":"Ampliar"}</i></span></button>`}
 function head(t,d,n){return `<div class="pg-h"><div class="ph-row"><h2>${t}</h2>${n?`<span class="cnt">${n} piezas</span>`:""}</div><p class="lead">${d}</p></div>`}
 function next(i){const n=PAGES[i+1];return `<div class="next"><a href="#${n?n.r:"/"}">${n?"Siguiente: "+n.n:"Volver al inicio"} →</a></div>`}
 function av(p){return `<div class="av"><img src="${esc(A(p.image))}" alt="${esc(p.name)}" loading="lazy" onerror="this.parentNode.classList.add('nf');this.remove()"><span aria-hidden="true">${esc(p.name.trim().charAt(0).toUpperCase())}</span></div>`}
@@ -424,9 +446,9 @@ const views={
 "/":()=>{const f=RENDERS[Math.floor(Math.random()*RENDERS.length)];
  const cats=[["/renders","Renders","Escenas con iluminación, materiales y composición cuidadas.",RENDERS[0]],["/modelos-3d","Modelos 3D","Volumen, forma y detalle en cada pieza.",MODELS[0]],["/ilustraciones","Ilustraciones","Composiciones digitales con estilo propio.",ILUS[1]]];
  const mq=["Renders","Modelos 3D","Animación","Ilustración","Blender"].map(t=>`<span>${t}</span><span>✦</span>`).join("");
- return `<section class="hero"><div class="hero-bg">${media(f,1)}</div><div class="hw" aria-hidden="true"><i class="wv"></i><i class="wv"></i><i class="wv"></i></div><div class="hero-c"><p class="eyebrow">Portafolio de renders y 3D</p><h1><span class="w">Bandejita</span><span class="w">Paisa</span></h1><p class="lead">Soy Matthew. Creo renders, modelos 3D, animaciones e ilustraciones, cuidando la iluminación, los materiales y la composición de cada escena.</p><div class="btns"><a class="btn p" href="#/renders">Ver renders</a><a class="btn" href="#/sobre-mi">Conocer al artista</a></div></div><div class="hero-meta"><p class="chips"><span>Renders</span><span>Modelado 3D</span><span>Animación</span><span>Ilustración</span></p><span class="scue" aria-hidden="true">Desliza</span></div></section>
+ return `<section class="hero"><div class="hero-bg">${media(f,1)}</div><div class="hw" aria-hidden="true"><i class="wv"></i><i class="wv"></i><i class="wv"></i></div><div class="hero-c"><h1><span class="w">Bandejita</span><span class="w">Paisa</span></h1><p class="lead">Soy Matthew. Creo renders, modelos 3D, animaciones e ilustraciones, cuidando la iluminación, los materiales y la composición de cada escena.</p><div class="btns"><a class="btn p" href="#/renders">Ver renders</a><a class="btn" href="#/sobre-mi">Conocer al artista</a></div></div><div class="hero-meta"><p class="chips"><span>Renders</span><span>Modelado 3D</span><span>Animación</span><span>Ilustración</span></p><span class="scue" aria-hidden="true">Desliza</span></div></section>
 <div class="marq" aria-hidden="true"><div>${mq+mq+mq+mq}</div></div>
-<section><div class="sec-h"><h3 class="sub">Renders destacados</h3><a href="#/renders">Ver todos →</a></div>${gal(RENDERS.slice(0,3),3)}</section>
+<section><div class="sec-h"><h3 class="sub">Renders destacados</h3><a href="#/renders">Ver todos →</a></div><div class="feat">${RENDERS.slice(0,3).map(workHTML).join("")}</div></section>
 <section class="sec"><div class="sec-h"><h3 class="sub">Explora el portafolio</h3></div><div class="cats">${cats.map(c=>`<a class="card" href="#${c[0]}"><div class="im">${media(c[3],1)}</div><div class="tx"><h3>${c[1]}</h3><p>${c[2]}</p><span class="more">Explorar →</span></div></a>`).join("")}<div class="card pv3"><div class="im"><div class="v3d" id="pv3d"></div><a class="pv3-l" href="#/animaciones-3d" aria-label="Ver animaciones 3D"></a></div><a class="tx" href="#/animaciones-3d"><h3>Animaciones 3D</h3><p>Ciclos de caminar, correr y más en un visor interactivo.</p><span class="more">Explorar →</span></a></div></div></section>`},
 "/sobre-mi":()=>`<div class="about"><div class="frame"><img src="assets/bandejita.png" alt="Matthew, conocido como BandejitaPaisa" width="600" height="600" decoding="async"></div><div><h2 style="margin-bottom:.5em">Sobre mí</h2><p class="lead">Hola, soy Matthew, conocido en línea como BandejitaPaisa.</p><p class="lead">Me dedico al modelado 3D, la animación y la ilustración, y busco darle un estilo propio a cada proyecto.</p><p class="lead">Actualmente profundizo en los renders con Blender: experimento con iluminación, materiales, escenarios y distintas técnicas para mejorar con cada trabajo.</p><p class="lead">Este portafolio reúne una selección de mis proyectos y muestra cómo ha ido evolucionando mi estilo.</p><div class="pills"><div class="pill"><b>Modelado</b><small>Modelos 3D con detalle</small></div><div class="pill"><b>Animación</b><small>En formación constante</small></div><div class="pill"><b>Ilustración</b><small>Composiciones con estilo propio</small></div></div></div></div>${next(1)}`,
 "/modelos-3d":()=>head("Modelos 3D","Una selección de modelos tridimensionales y experimentos visuales, desarrollados con atención al detalle.",MODELS.length)+gal(MODELS,3)+next(2),
@@ -476,7 +498,7 @@ let cur=[],ix=0,opener=null;
 function show(){const p=cur[ix],s=$("#ls");
  if(p.type==="video"){s.innerHTML=p.video?`<video src="${esc(p.video)}" controls playsinline preload="metadata" poster="${esc(p.image||"")}" muted></video>`:ph(p)}
  else s.innerHTML=p.image?`<img src="${esc(A(p.image))}" alt="${esc(p.alt)}" onerror="this.outerHTML='<div class=spin>No se pudo cargar</div>'">`:ph(p);
- $("#lc").innerHTML=`${p.title?`<strong>${esc(p.title)}</strong>`:""}${p.description?`<p>${esc(p.description)}</p>`:""}`;
+ $("#lc").innerHTML=`<small class="ct">${ix+1} / ${cur.length}</small>${p.title?`<strong>${esc(p.title)}</strong>`:""}${p.description?`<p>${esc(p.description)}</p>`:""}`;
  const m=cur.length>1;$("#lp").hidden=$("#ln").hidden=!m}
 function open(L,i,el){cur=L;ix=i;opener=el;show();$("#lb").classList.add("on");$("#lx").focus();document.body.style.overflow="hidden"}
 function close(){const v=$("#ls video");if(v)v.pause();$("#lb").classList.remove("on");$("#ls").innerHTML="";document.body.style.overflow="";if(opener)opener.focus()}
