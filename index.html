@@ -5,17 +5,17 @@
 <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
 <link rel="icon" type="image/png" href="assets/bandejita.png">
 <link rel="apple-touch-icon" href="assets/bandejita.png">
-<title>Bandejitaapaisaa | Artista gráfico</title>
-<meta name="description" content="Descubre el trabajo de Matthew, conocido como Bandejitaapaisaa: modelos 3D, renders e ilustraciones creadas con creatividad y estilo propio.">
+<title>BandejitaPaisa | Renders y modelado 3D</title>
+<meta name="description" content="Descubre el trabajo de Matthew, conocido como BandejitaPaisa: renders, modelos 3D, animaciones e ilustraciones con estilo propio.">
 <link rel="canonical" href="https://zansumilmc.github.io/Bandejita/">
 <meta property="og:type" content="website">
-<meta property="og:title" content="Bandejitaapaisaa | Artista gráfico">
-<meta property="og:description" content="Descubre el trabajo de Matthew, conocido como Bandejitaapaisaa: modelos 3D, renders e ilustraciones.">
+<meta property="og:title" content="BandejitaPaisa | Renders y modelado 3D">
+<meta property="og:description" content="Descubre el trabajo de Matthew, conocido como BandejitaPaisa: renders, modelos 3D, animaciones e ilustraciones.">
 <meta property="og:url" content="https://zansumilmc.github.io/Bandejita/">
 <!-- Sin banner por ahora. Cuando exista, añadir: og:image y twitter:image con https://zansumilmc.github.io/Bandejita/og/banner-1200x630.png y cambiar twitter:card a summary_large_image -->
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="Bandejitaapaisaa | Artista gráfico">
-<meta name="twitter:description" content="Modelos 3D, renders e ilustraciones de Matthew.">
+<meta name="twitter:title" content="BandejitaPaisa | Renders y modelado 3D">
+<meta name="twitter:description" content="Renders, modelos 3D e ilustraciones de Matthew.">
 <link rel="preconnect" href="https://fonts.googleapis.com"><link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Bricolage+Grotesque:opsz,wght@12..96,600;12..96,800&family=DM+Sans:wght@400;500;700&display=swap">
 <style>
@@ -30,25 +30,19 @@ button{font:inherit;color:inherit;cursor:pointer}
 ::selection{background:#4C8DFF66;color:#fff}
 :focus-visible{outline:2px solid var(--ac2);outline-offset:3px}
 .wrap{max-width:1000px;margin:0 auto;padding:0 28px}
-/* navegación: barra superior en móvil, panel lateral en escritorio */
-header{position:sticky;top:0;z-index:20;padding-top:env(safe-area-inset-top,0px);background:#0D1526ee;backdrop-filter:blur(14px);border-bottom:1px solid var(--bd)}
-.nav{display:flex;align-items:center;justify-content:space-between;min-height:60px;padding:0 20px}
-.logo{font-weight:800;font-size:1.25rem;letter-spacing:-.03em}
-.logo b{color:var(--ac2)}
-.burger{min-height:44px;min-width:44px;background:none;border:1px solid var(--bd);border-radius:12px}
-nav{position:absolute;left:0;right:0;top:100%;display:none;background:var(--bg2);border-bottom:1px solid var(--bd);padding:8px 20px 14px}
-nav.open{display:block}
+/* navegación */
+header{position:fixed;top:0;left:0;right:0;z-index:30;padding:calc(10px + env(safe-area-inset-top,0px)) 12px 0;pointer-events:none}
+.nav{position:relative;pointer-events:auto;max-width:1120px;margin:0 auto;display:flex;align-items:center;justify-content:space-between;gap:12px;min-height:58px;padding:0 8px 0 22px;border-radius:99px;background:#0D1526b8;backdrop-filter:blur(16px) saturate(1.3);border:1px solid #4C8DFF33;box-shadow:0 10px 40px #0007}
+.logo{font-weight:800;font-size:1.3rem;letter-spacing:-.035em;white-space:nowrap}
+.logo b{background:linear-gradient(90deg,var(--ac2),var(--ac));-webkit-background-clip:text;background-clip:text;color:transparent}
+.burger{min-height:44px;min-width:44px;background:#ffffff0a;border:1px solid var(--bd);border-radius:99px}
+nav{position:absolute;left:0;right:0;top:calc(100% + 8px);display:none;background:#0D1526f2;backdrop-filter:blur(16px);border:1px solid #4C8DFF33;border-radius:22px;padding:8px;box-shadow:0 20px 50px #000a}
+nav.open{display:block;animation:in .25s ease both}
 nav ul{list-style:none;margin:0;padding:0}
-nav a{display:block;padding:12px 14px;border-radius:10px;color:var(--tx2);transition:color .2s,background .2s}
-nav a:hover{color:var(--tx);background:#ffffff0a}
-nav a[aria-current=page]{color:var(--tx);background:linear-gradient(90deg,#4C8DFF2e,transparent);box-shadow:inset 3px 0 var(--ac2)}
-@media(min-width:1020px){
- body{padding-left:248px}
- header{position:fixed;inset:0 auto 0 0;width:248px;padding-top:0;background:var(--bg2);backdrop-filter:none;border-bottom:0;border-right:1px solid var(--bd)}
- .nav{display:block;padding:34px 18px}
- .burger{display:none}
- nav{position:static;display:block;background:none;border:0;padding:0;margin-top:38px}
-}
+nav a{display:block;padding:12px 16px;border-radius:14px;color:var(--tx2);transition:color .2s,background .2s}
+nav a:hover{color:var(--tx);background:#ffffff0d}
+nav a[aria-current=page]{color:var(--tx);background:#4C8DFF2e;box-shadow:inset 0 0 0 1px #4C8DFF55}
+@media(min-width:1100px){.burger{display:none}nav{position:static;display:block;background:none;border:0;padding:0;box-shadow:none;backdrop-filter:none}nav ul{display:flex;gap:2px}nav a{padding:9px 13px;font-size:.9rem;border-radius:99px;white-space:nowrap}}
 main{min-height:70vh;padding:44px 28px 24px;max-width:1000px;margin:0 auto;animation:in .5s ease both}
 @keyframes in{from{opacity:0;transform:translateY(12px)}}
 /* títulos */
@@ -64,19 +58,29 @@ h2{font-size:clamp(2rem,4.6vw,3.2rem);letter-spacing:-.035em;line-height:1.05;ma
 .btn:hover{border-color:var(--ac);transform:translateY(-2px);box-shadow:0 8px 24px #4C8DFF33}
 .btn.p{background:linear-gradient(135deg,var(--ac),#2f6de0);border-color:transparent}
 /* inicio */
-.hero{display:grid;grid-template-columns:1.15fr .85fr;gap:44px;align-items:center;padding:16px 0 56px}
-@media(max-width:860px){.hero{grid-template-columns:1fr}}
-h1{font-size:clamp(3rem,6.2vw,5.2rem);line-height:.95;letter-spacing:-.04em;font-weight:800;margin:0 0 .35em;overflow-wrap:anywhere}
-h1 span{display:block;animation:up .9s cubic-bezier(.2,.7,.2,1) backwards}
-h1 span+span{padding-left:.9em;animation-delay:.14s}
+.hero{display:flex;flex-direction:column;align-items:center;text-align:center;padding:18px 0 8px}
+.eyebrow{display:inline-flex;align-items:center;gap:10px;margin:0;font-size:.88rem;letter-spacing:.04em;color:var(--ac2);border:1px solid #4C8DFF55;background:#4C8DFF14;padding:6px 16px;border-radius:99px}
+.eyebrow:before{content:"";width:8px;height:8px;border-radius:50%;background:var(--ac2);box-shadow:0 0 10px var(--ac);animation:pls 1.8s ease-in-out infinite}
+h1{font-size:clamp(2.5rem,10.5vw,7.4rem);line-height:1.1;letter-spacing:-.045em;font-weight:800;margin:.3em 0 .2em}
+h1 .w{display:inline-block;padding-bottom:.12em;animation:up .9s cubic-bezier(.2,.7,.2,1) backwards}
+h1 .w+.w{background:linear-gradient(100deg,#77B7FF,#4C8DFF 45%,#C4DEFF 60%,#4C8DFF);background-size:220% 100%;-webkit-background-clip:text;background-clip:text;color:transparent;animation:up .9s cubic-bezier(.2,.7,.2,1) .15s backwards,shine 5s ease-in-out 1s infinite alternate}
 @keyframes up{from{opacity:0;transform:translateY(40px)}}
-.chips{display:flex;flex-wrap:wrap;gap:8px;margin:20px 0 0;padding:0}
+@keyframes shine{to{background-position:100% 0}}
+.hero .lead{max-width:56ch;font-size:1.12rem;margin:.4em auto 0}
+.hero .btns{justify-content:center}
+.chips{display:flex;flex-wrap:wrap;justify-content:center;gap:8px;margin:22px 0 0;padding:0}
 .chips span{font-size:.88rem;color:var(--ac2);border:1px solid #4C8DFF55;background:#4C8DFF14;padding:4px 14px;border-radius:99px}
-@property --a{syntax:"<angle>";initial-value:0deg;inherits:false}
-@keyframes spin{to{--a:360deg}}
-.frame{aspect-ratio:1;padding:3px;border-radius:28px;background:conic-gradient(from var(--a),transparent 0 45%,var(--ac2) 72%,var(--ac) 88%,transparent);animation:spin 6s linear infinite;box-shadow:0 0 60px #4C8DFF33}
-.frame>img,.frame .im{display:block;width:100%;height:100%;border-radius:25px;border:3px solid var(--bg);background:var(--bg2);overflow:hidden;position:relative}
+.show{position:relative;width:100%;max-width:920px;margin:44px auto 0}
+.frame{position:relative;padding:2px;border-radius:26px;background:linear-gradient(140deg,#77B7FF,#23324B 38%,#0D1526 60%,#4C8DFF);box-shadow:0 30px 80px #4C8DFF30;animation:flt 8s ease-in-out infinite}
+.frame>img,.frame .im{display:block;width:100%;border-radius:24px;background:var(--bg2);overflow:hidden;position:relative}
+.show .im{aspect-ratio:16/10}
 .frame img,.frame .ph{display:block;width:100%;height:100%;object-fit:cover}
+.frame .im img,.frame .im .ph{position:absolute;inset:0}
+.about .frame{aspect-ratio:1}
+@keyframes flt{50%{transform:translateY(-10px)}}
+.fchip{position:absolute;z-index:2;padding:8px 16px;border-radius:99px;font-size:.85rem;font-weight:700;background:#0D1526d9;backdrop-filter:blur(10px);border:1px solid #4C8DFF66;animation:flt 6s ease-in-out infinite}
+.fchip.a{left:-14px;bottom:18%}.fchip.b{right:-10px;top:12%;animation-delay:-3s}
+@media(max-width:700px){.fchip.a{left:8px}.fchip.b{right:8px}}
 .cats{display:grid;grid-template-columns:repeat(4,minmax(0,1fr));gap:16px}
 @media(max-width:960px){.cats{grid-template-columns:repeat(2,minmax(0,1fr))}}
 @media(max-width:520px){.cats{grid-template-columns:minmax(0,1fr)}}
@@ -158,17 +162,46 @@ footer .lead{margin:.8em auto 0;max-width:62ch}
 .ib:hover{border-color:var(--ac)}
 .ib.x{top:max(14px,env(safe-area-inset-top));right:14px}.ib.l{left:12px;top:50%}.ib.r{right:12px;top:50%}
 /* entrada */
-.gate{position:fixed;inset:0;z-index:100;display:grid;place-items:center;background:radial-gradient(45% 45% at 50% 40%,#4C8DFF30,transparent),var(--bg);transition:opacity .7s ease,visibility .7s}
+.gate{position:fixed;inset:0;z-index:100;display:grid;place-items:center;background:radial-gradient(45% 45% at 50% 40%,#4C8DFF30,transparent),#080D18d9;backdrop-filter:blur(8px);transition:opacity .7s ease,visibility .7s}
 .gate.out{opacity:0;visibility:hidden;pointer-events:none}
-.gate-in{display:flex;flex-direction:column;align-items:center;gap:30px;padding:24px;text-align:center}
-.gate-t{font-size:clamp(2.4rem,9vw,5rem);font-weight:800;letter-spacing:-.04em;line-height:1.1}
+.gate-in{display:flex;flex-direction:column;align-items:center;gap:26px;padding:24px;text-align:center}
+.gate-t{font-size:clamp(2.6rem,11vw,5.6rem);font-weight:800;letter-spacing:-.045em;line-height:1.15;animation:up 1s cubic-bezier(.2,.7,.2,1) backwards}
 .gate-t b{color:var(--ac2)}
 .gate-b{min-height:54px;padding:0 38px;font-size:1.1rem}
-/* mute */
-.mute{position:fixed;right:max(16px,env(safe-area-inset-right,0px));bottom:calc(16px + env(safe-area-inset-bottom,0px));z-index:40;width:48px;height:48px;border-radius:50%;border:1px solid #4C8DFF66;background:#111D33e6;backdrop-filter:blur(8px);display:grid;place-items:center;padding:0;color:var(--ac2);transition:.25s;box-shadow:0 6px 20px #0008}
-.mute:hover{border-color:var(--ac2);transform:translateY(-2px)}
-.mute svg{width:22px;height:22px;display:block}.mute .off{display:none}
-.mute.is-muted{color:var(--tx2);border-color:var(--bd)}.mute.is-muted .on{display:none}.mute.is-muted .off{display:block}
+.gate-n{color:var(--tx2);font-size:.85rem}
+/* reproductor */
+.pl{position:fixed;right:max(14px,env(safe-area-inset-right,0px));bottom:calc(14px + env(safe-area-inset-bottom,0px));z-index:40;width:min(350px,calc(100vw - 28px));display:flex;gap:14px;align-items:center;padding:12px;border-radius:22px;background:#0D1526e8;backdrop-filter:blur(16px);border:1px solid #4C8DFF55;box-shadow:0 14px 40px #000a,0 0 40px #4C8DFF1f}
+.pl-cv{position:relative;flex:none;width:72px;height:72px;border-radius:16px;overflow:hidden;border:1px solid var(--bd);background:linear-gradient(135deg,#16294b,#0b1426);padding:0;display:grid;place-items:center;color:var(--ac2)}
+.pl-cv svg{width:26px;height:26px}
+.pl-cv img{position:absolute;inset:0;width:100%;height:100%;object-fit:cover}
+.px{position:absolute;top:6px;right:8px;width:26px;height:26px;border-radius:50%;border:0;background:#ffffff0d;color:var(--tx2);line-height:1;padding:0}
+.px:hover{color:var(--tx);background:#ffffff1a}
+.pl-b{flex:1;min-width:0;display:grid;gap:6px}
+.pl-t{display:flex;flex-direction:column;line-height:1.25;padding-right:22px;position:relative}
+.pl-t b{font-size:1.02rem}.pl-t small{color:var(--tx2);font-size:.82rem}
+.eq{position:absolute;right:0;bottom:2px;display:flex;align-items:flex-end;gap:2px;height:14px;opacity:0;transition:opacity .3s}
+.eq s{display:block;width:3px;height:100%;background:var(--ac2);border-radius:2px;transform-origin:bottom;animation:eq .9s ease-in-out infinite}
+.eq s:nth-child(2){animation-delay:-.3s}.eq s:nth-child(3){animation-delay:-.6s}
+.pl.on .eq{opacity:1}
+@keyframes eq{0%,100%{transform:scaleY(.25)}50%{transform:scaleY(1)}}
+.pl-bar{display:grid;grid-template-columns:auto 1fr auto;gap:8px;align-items:center;font-size:.72rem;color:var(--tx2);font-variant-numeric:tabular-nums}
+.pl-r{display:flex;align-items:center;gap:8px}
+.pb{flex:none;width:38px;height:38px;border-radius:50%;border:1px solid var(--bd);background:var(--card);display:grid;place-items:center;padding:0;color:var(--tx);transition:.2s}
+.pb:hover{border-color:var(--ac)}
+.pb.pp{background:linear-gradient(135deg,var(--ac),#2f6de0);border-color:transparent}
+.pb svg{width:18px;height:18px;display:block}
+.pb .off,.pp .i-pause{display:none}
+.pb.is-muted{color:var(--tx2)}.pb.is-muted .on{display:none}.pb.is-muted .off{display:block}
+.pp.is-play .i-play{display:none}.pp.is-play .i-pause{display:block}
+.rg{-webkit-appearance:none;appearance:none;width:100%;min-width:0;height:18px;margin:0;cursor:pointer;border-radius:0;background:linear-gradient(90deg,var(--ac2) var(--p,0%),#ffffff24 var(--p,0%)) center/100% 5px no-repeat}
+.rg::-webkit-slider-thumb{-webkit-appearance:none;width:14px;height:14px;border-radius:50%;background:#fff;border:0;box-shadow:0 0 0 3px #4C8DFF66}
+.rg::-moz-range-thumb{width:14px;height:14px;border-radius:50%;background:#fff;border:0;box-shadow:0 0 0 3px #4C8DFF66}
+.rg::-moz-range-track{background:transparent}
+.pl.min{width:auto;padding:8px;border-radius:99px}
+.pl.min .pl-b,.pl.min .px{display:none}
+.pl.min .pl-cv{width:56px;height:56px;border-radius:50%}
+.pl.min.on .pl-cv img{animation:rot 10s linear infinite}
+@keyframes rot{to{transform:rotate(360deg)}}
 /* visor 3D (lo genera js/animaciones3d.js: no cambiar nombres de clase) */
 @keyframes pls{50%{opacity:.45}}
 .v3d{display:grid;grid-template-columns:minmax(0,1fr) 300px;gap:20px;align-items:stretch}
@@ -213,25 +246,62 @@ footer .lead{margin:.8em auto 0;max-width:62ch}
 .pv3 .v3d-panel,.pv3 .v3d-hint{display:none}
 .pv3 .v3d-now{left:10px;top:10px;padding:5px 10px;font-size:.75rem}
 .pv3-l{position:absolute;inset:0;z-index:5}
+/* fondo animado: olas y burbujas */
+body:before{animation:drift 16s ease-in-out infinite alternate}
+@keyframes drift{to{transform:translate(-2%,2%) scale(1.1)}}
+.waves{position:fixed;left:0;right:0;bottom:0;height:44vh;z-index:-1;pointer-events:none;overflow:hidden}
+.wv{position:absolute;left:0;bottom:0;width:200%;background-repeat:repeat-x;background-position:bottom;background-size:50% 100%;animation:wv 26s linear infinite}
+.wv:nth-child(1){height:100%;background-image:url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 1200 200' preserveAspectRatio='none'%3E%3Cpath fill='%234C8DFF' fill-opacity='.13' d='M0 90Q300 10 600 90T1200 90V200H0Z'/%3E%3C/svg%3E")}
+.wv:nth-child(2){height:78%;animation-duration:19s;animation-direction:reverse;background-image:url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 1200 200' preserveAspectRatio='none'%3E%3Cpath fill='%2377B7FF' fill-opacity='.11' d='M0 110Q150 150 300 110T600 110T900 110T1200 110V200H0Z'/%3E%3C/svg%3E")}
+.wv:nth-child(3){height:56%;animation-duration:13s;background-image:url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 1200 200' preserveAspectRatio='none'%3E%3Cpath fill='%234C8DFF' fill-opacity='.17' d='M0 120Q100 90 200 120T400 120T600 120T800 120T1000 120T1200 120V200H0Z'/%3E%3C/svg%3E")}
+@keyframes wv{to{transform:translateX(-50%)}}
+.bubs{position:fixed;inset:0;z-index:-1;overflow:hidden;pointer-events:none}
+.bub{position:absolute;bottom:-40px;border-radius:50%;border:1px solid #77B7FF55;background:radial-gradient(circle at 30% 30%,#77B7FF33,transparent 70%);animation:bub linear infinite}
+@keyframes bub{0%{opacity:0}10%,85%{opacity:1}100%{opacity:0;transform:translate(var(--x),-112vh)}}
+/* rediseño general */
+main{max-width:1120px;padding:112px 28px 24px}
+.pg-h{border-bottom:0;position:relative}
+.pg-h:after{content:"";position:absolute;left:0;bottom:0;height:2px;width:100%;background:linear-gradient(90deg,var(--ac),#4C8DFF00)}
+.card{background:#111D33cc;backdrop-filter:blur(6px)}
+.card .im img{transition:transform .7s}.card:hover .im img{transform:scale(1.07)}
+.sec-h{display:flex;align-items:baseline;justify-content:space-between;gap:12px;margin:0 0 16px}
+.sec-h .sub{margin:0}.sec-h a{color:var(--ac2);font-size:.92rem}
+.marq{overflow:hidden;margin:56px 0;border-block:1px solid var(--bd);background:#0D152699}
+.marq div{display:flex;width:max-content;animation:mq 34s linear infinite}
+.marq span{padding:16px 26px;font:800 1.15rem "Bricolage Grotesque",sans-serif;letter-spacing:.1em;text-transform:uppercase;color:var(--tx2)}
+.marq span:nth-child(even){color:var(--ac)}
+@keyframes mq{to{transform:translateX(-50%)}}
+footer{background:#0D1526cc;backdrop-filter:blur(10px);padding-bottom:calc(120px + env(safe-area-inset-bottom,0px))}
+.rv{opacity:0}.rv.in{opacity:1;animation:rise .8s cubic-bezier(.2,.7,.2,1) var(--d,0s) backwards}
+@keyframes rise{from{opacity:0;transform:translateY(28px)}}
 @media(prefers-reduced-motion:reduce){*,*:before,*:after{animation:none!important;transition:none!important;scroll-behavior:auto!important}}
 </style>
 </head>
 <body>
-<div class="gate" id="gate" role="dialog" aria-modal="true" aria-label="Entrar al sitio"><div class="gate-in"><div class="gate-t">Bandejita<b>apaisaa</b></div><button class="btn p gate-b" id="ge" type="button">Click to enter</button></div></div>
+<div class="waves" aria-hidden="true"><i class="wv"></i><i class="wv"></i><i class="wv"></i></div><div class="bubs" id="bubs" aria-hidden="true"></div>
+<div class="gate" id="gate" role="dialog" aria-modal="true" aria-label="Entrar al sitio"><div class="gate-in"><p class="eyebrow">Portafolio de renders y 3D</p><div class="gate-t">Bandejita<b>Paisa</b></div><button class="btn p gate-b" id="ge" type="button">Entrar al portafolio</button><small class="gate-n">♪ Este sitio incluye música de fondo</small></div></div>
 <header><div class="nav">
-<a class="logo" href="#/" aria-label="Bandejitaapaisaa, inicio">Bandejita<b>apaisaa</b></a>
+<a class="logo" href="#/" aria-label="BandejitaPaisa, inicio">Bandejita<b>Paisa</b></a>
 <button class="burger" id="bg" aria-label="Abrir menú" aria-expanded="false">☰</button>
 <nav id="nv" aria-label="Principal"><ul id="nl"></ul></nav>
 </div></header>
 <main id="app" tabindex="-1"></main>
 <footer><div class="wrap">
-<h2>¿Creamos algo increíble?</h2>
-<p class="lead">¿Tienes una idea, un proyecto o simplemente te gusta mi trabajo? Me encantaría conocer lo que tienes en mente. Siempre estoy abierto a nuevas ideas, colaboraciones y oportunidades para seguir creando.</p><p class="lead" style="color:var(--tx)">Hablemos y hagamos realidad nuevas ideas.</p>
-<div class="btns" id="fb" style="justify-content:center"><a class="btn p" id="xl" target="_blank" rel="noopener noreferrer">Contactar en X ↗</a><button class="btn" id="dc" type="button" aria-live="polite">Discord: bandejita_paisaaa</button></div>
+<h2>Trabajemos juntos</h2>
+<p class="lead">¿Tienes una idea o un proyecto en mente? Me encantará conocerlo. Estoy abierto a colaboraciones, encargos y nuevas oportunidades creativas.</p>
+<div class="btns" id="fb" style="justify-content:center"><a class="btn p" id="xl" target="_blank" rel="noopener noreferrer">Escribirme en X ↗</a><button class="btn" id="dc" type="button" aria-live="polite">Discord: bandejita_paisaaa</button></div>
 <div class="credit">Página realizada por <a href="https://zansumi.github.io/" target="_blank" rel="noopener noreferrer">ᴸᴹᶜ | Zansumi</a></div>
 <p class="rights" id="cp"></p>
 </div></footer>
-<button class="mute" id="mt" type="button" aria-label="Silenciar música" aria-pressed="false" title="Silenciar música"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><g class="on"><path d="M11 5 6 9H3v6h3l5 4z"/><path d="M15.5 8.5a5 5 0 0 1 0 7"/><path d="M18.5 5.5a9 9 0 0 1 0 13"/></g><g class="off"><path d="M11 5 6 9H3v6h3l5 4z"/><path d="m22 9-6 6"/><path d="m16 9 6 6"/></g></svg></button>
+<aside class="pl" id="pl" aria-label="Reproductor de música">
+<button class="pl-cv" id="pc" type="button" aria-label="Expandir reproductor" aria-expanded="true"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M9 18V5l12-2v13"/><circle cx="6" cy="18" r="3"/><circle cx="18" cy="16" r="3"/></svg><img src="assets/crep.png" alt="Portada de Creep, de Radiohead" onerror="this.remove()"></button>
+<button class="px" id="px" type="button" aria-label="Minimizar reproductor" title="Minimizar">–</button>
+<div class="pl-b">
+<div class="pl-t"><b>Creep</b><small>Radiohead</small><i class="eq" aria-hidden="true"><s></s><s></s><s></s></i></div>
+<div class="pl-bar"><span id="pt">0:00</span><input class="rg" id="ps" type="range" min="0" max="100" step=".1" value="0" aria-label="Progreso de la canción"><span id="pd">0:00</span></div>
+<div class="pl-r"><button class="pb pp" id="pp" type="button" aria-label="Reproducir" title="Reproducir"><svg viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path class="i-play" d="M8 5v14l11-7z"/><g class="i-pause"><rect x="6" y="5" width="4" height="14" rx="1"/><rect x="14" y="5" width="4" height="14" rx="1"/></g></svg></button><button class="pb" id="mt" type="button" aria-label="Silenciar" aria-pressed="false" title="Silenciar"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><g class="on"><path d="M11 5 6 9H3v6h3l5 4z"/><path d="M15.5 8.5a5 5 0 0 1 0 7"/><path d="M18.5 5.5a9 9 0 0 1 0 13"/></g><g class="off"><path d="M11 5 6 9H3v6h3l5 4z"/><path d="m22 9-6 6"/><path d="m16 9 6 6"/></g></svg></button><input class="rg" id="vl" type="range" min="0" max="100" step="1" value="10" aria-label="Volumen"></div>
+</div>
+</aside>
 <div class="lb" id="lb" role="dialog" aria-modal="true" aria-label="Vista ampliada">
 <button class="ib x" id="lx" aria-label="Cerrar">✕</button><button class="ib l" id="lp" aria-label="Anterior">‹</button><button class="ib r" id="ln" aria-label="Siguiente">›</button>
 <div class="st" id="ls"></div><div class="cap" id="lc"></div>
@@ -262,14 +332,14 @@ const ILUS=[
  {id:"i3",title:"",description:"Ilustración",category:"",image:"ilustracion3.png",thumbnail:"",alt:"Ilustración 3",type:"image",w:1,h:1},
  {id:"i4",title:"Para ElMarcoPlays",description:"Ilustración",category:"",image:"ilustracion4.png",thumbnail:"",alt:"",type:"image",w:16,h:9}];
 const PAGES=[
- {r:"/",n:"Inicio",t:"Bandejitaapaisaa | Artista gráfico"},
- {r:"/sobre-mi",n:"Sobre mí",t:"Sobre mí | Bandejitaapaisaa"},
- {r:"/modelos-3d",n:"Modelos 3D",t:"Modelos 3D | Bandejitaapaisaa"},
- {r:"/renders",n:"Renders",t:"Renders | Bandejitaapaisaa"},
- {r:"/animaciones-3d",n:"Animaciones 3D",t:"Animaciones 3D | Bandejitaapaisaa"},
- {r:"/ilustraciones",n:"Ilustraciones",t:"Ilustraciones | Bandejitaapaisaa"},
- {r:"/opiniones",n:"Opiniones",t:"Opiniones | Bandejitaapaisaa"},
- {r:"/contacto",n:"Contacto",t:"Contacto | Bandejitaapaisaa"}];
+ {r:"/",n:"Inicio",t:"BandejitaPaisa | Renders y modelado 3D"},
+ {r:"/sobre-mi",n:"Sobre mí",t:"Sobre mí | BandejitaPaisa"},
+ {r:"/modelos-3d",n:"Modelos 3D",t:"Modelos 3D | BandejitaPaisa"},
+ {r:"/renders",n:"Renders",t:"Renders | BandejitaPaisa"},
+ {r:"/animaciones-3d",n:"Animaciones 3D",t:"Animaciones 3D | BandejitaPaisa"},
+ {r:"/ilustraciones",n:"Ilustraciones",t:"Ilustraciones | BandejitaPaisa"},
+ {r:"/opiniones",n:"Opiniones",t:"Opiniones | BandejitaPaisa"},
+ {r:"/contacto",n:"Contacto",t:"Contacto | BandejitaPaisa"}];
 const STUDIOS=[
  {name:"Mira Productions",image:"mira-productions.png"},
  {name:"Retro Games Team",image:"retro-games-team.png"},
@@ -298,19 +368,22 @@ function workBtn(p){if(!p.work)return"";const w=[...MODELS,...RENDERS,...ILUS].f
 const gal=(L,c)=>`<div class="mas" style="--c:${c}">${L.map(workHTML).join("")}</div>`;
 /* ===== PÁGINAS ===== */
 const views={
-"/":()=>{const all=[...MODELS,...ILUS,...RENDERS],f=all[Math.floor(Math.random()*all.length)];
- const cats=[["/modelos-3d","Modelos 3D","Volúmenes, formas y detalle tridimensional.",MODELS[0]],["/renders","Renders","Iluminación, materiales y composición.",RENDERS[0]],["/ilustraciones","Ilustraciones","Ideas y composiciones visuales.",ILUS[1]]];
- return `<section class="hero"><div><h1><span>Bandejita</span><span>apaisaa</span></h1><p class="lead">Transformando ideas en experiencias visuales a través del 3D, la animación y la ilustración.</p><p class="chips"><span>Modelador 3D</span><span>Artista gráfico</span><span>Animador en aprendizaje</span></p><div class="btns"><a class="btn p" href="#/modelos-3d">Explorar portafolio</a><a class="btn" href="#/sobre-mi">Conocer al artista</a></div></div><div class="frame"><div class="im">${media(f,1)}</div></div></section>
-<section><div class="cats">${cats.map(c=>`<a class="card" href="#${c[0]}"><div class="im">${media(c[3],1)}</div><div class="tx"><h3>${c[1]}</h3><p>${c[2]}</p><span class="more">Explorar →</span></div></a>`).join("")}<div class="card pv3"><div class="im"><div class="v3d" id="pv3d"></div><a class="pv3-l" href="#/animaciones-3d" aria-label="Ver animaciones 3D"></a></div><a class="tx" href="#/animaciones-3d"><h3>Animaciones 3D</h3><p>Caminar, correr y más.</p><span class="more">Explorar →</span></a></div></div></section>`},
-"/sobre-mi":()=>`<div class="about"><div class="frame"><img src="assets/bandejita.png" alt="Matthew, conocido como Bandejitaapaisaa" width="600" height="600" decoding="async"></div><div><h2 style="margin-bottom:.5em">Sobre mí</h2><p class="lead">¡Hola! Soy Matthew, mejor conocido como Bandejitaapaisaa.</p><p class="lead">Me especializo en la creación de modelos 3D, animaciones 3D e ilustraciones, siempre buscando darle mi propio estilo y creatividad a cada proyecto.</p><p class="lead">Actualmente estoy explorando y aprendiendo más sobre los renders en Blender, experimentando con iluminación, materiales, escenarios y diferentes técnicas para mejorar cada vez más mis trabajos.</p><p class="lead">Este portafolio es una recopilación de algunos de mis proyectos y trabajos, donde podrás conocer un poco más sobre lo que hago y cómo ha ido evolucionando mi estilo.</p><div class="pills"><div class="pill"><b>Modelado</b><small>Hago modelos 3D</small></div><div class="pill"><b>Animación</b><small>Animador en aprendizaje</small></div><div class="pill"><b>Ilustración</b><small>Artista gráfico</small></div></div></div></div>${next(1)}`,
-"/modelos-3d":()=>head("Modelos 3D","Explora una selección de modelos tridimensionales, experimentos visuales y proyectos desarrollados con creatividad, detalle y dedicación.",MODELS.length)+gal(MODELS,3)+next(2),
-"/renders":()=>head("Renders","Iluminación, materiales y composición se unen para dar vida a ideas y crear experiencias visuales.",RENDERS.length)+gal(RENDERS,2)+next(3),
-"/animaciones-3d":()=>head("Animaciones 3D","Movimiento, composición e iluminación se unen para dar vida a ideas y crear experiencias visuales.")+`<section class="v3d" id="v3d" aria-label="Visor de animaciones 3D"></section>${next(4)}`,
-"/ilustraciones":()=>head("Ilustraciones","Una colección de ideas, composiciones y piezas visuales que reflejan mi creatividad y evolución artística.",ILUS.length)+gal(ILUS,2)+next(5),
-"/opiniones":()=>head("Lo que dicen de mi trabajo","Palabras de las personas con las que he colaborado.")+`<div class="tgrid">${REVIEWS.map(p=>`<article class="tcard">${av(p)}<div><h3>${esc(p.name)}</h3><p>${esc(p.text)}</p>${workBtn(p)}</div></article>`).join("")}</div><section class="sec"><h3 class="sub">Studios con los que he trabajado</h3><div class="studios">${STUDIOS.map(p=>`<div class="studio">${av(p)}<b>${esc(p.name)}</b></div>`).join("")}</div></section>`+next(6),
-"/contacto":()=>`<section class="ct-hero"><h2>¿Creamos algo increíble?</h2><p class="lead">¿Tienes una idea, un proyecto o simplemente te gusta mi trabajo? Me encantaría conocer lo que tienes en mente. Siempre estoy abierto a nuevas ideas, colaboraciones y oportunidades para seguir creando.</p><p class="lead big">Hablemos y hagamos realidad nuevas ideas.</p></section><div id="cb" class="cb"></div>`+next(7)
+"/":()=>{const f=RENDERS[Math.floor(Math.random()*RENDERS.length)];
+ const cats=[["/renders","Renders","Escenas con iluminación, materiales y composición cuidadas.",RENDERS[0]],["/modelos-3d","Modelos 3D","Volumen, forma y detalle en cada pieza.",MODELS[0]],["/ilustraciones","Ilustraciones","Composiciones digitales con estilo propio.",ILUS[1]]];
+ const mq=["Renders","Modelos 3D","Animación","Ilustración","Blender"].map(t=>`<span>${t}</span><span>✦</span>`).join("");
+ return `<section class="hero"><p class="eyebrow">Portafolio de renders y 3D</p><h1><span class="w">Bandejita</span><span class="w">Paisa</span></h1><p class="lead">Soy Matthew. Creo renders, modelos 3D, animaciones e ilustraciones, cuidando la iluminación, los materiales y la composición de cada escena.</p><p class="chips"><span>Renders</span><span>Modelado 3D</span><span>Animación</span><span>Ilustración</span></p><div class="btns"><a class="btn p" href="#/renders">Ver renders</a><a class="btn" href="#/sobre-mi">Conocer al artista</a></div><div class="show"><span class="fchip a">Renders</span><span class="fchip b">Modelado 3D</span><div class="frame"><div class="im">${media(f,1)}</div></div></div></section>
+<div class="marq" aria-hidden="true"><div>${mq+mq+mq+mq}</div></div>
+<section><div class="sec-h"><h3 class="sub">Renders destacados</h3><a href="#/renders">Ver todos →</a></div>${gal(RENDERS.slice(0,3),3)}</section>
+<section class="sec"><div class="sec-h"><h3 class="sub">Explora el portafolio</h3></div><div class="cats">${cats.map(c=>`<a class="card" href="#${c[0]}"><div class="im">${media(c[3],1)}</div><div class="tx"><h3>${c[1]}</h3><p>${c[2]}</p><span class="more">Explorar →</span></div></a>`).join("")}<div class="card pv3"><div class="im"><div class="v3d" id="pv3d"></div><a class="pv3-l" href="#/animaciones-3d" aria-label="Ver animaciones 3D"></a></div><a class="tx" href="#/animaciones-3d"><h3>Animaciones 3D</h3><p>Ciclos de caminar, correr y más en un visor interactivo.</p><span class="more">Explorar →</span></a></div></div></section>`},
+"/sobre-mi":()=>`<div class="about"><div class="frame"><img src="assets/bandejita.png" alt="Matthew, conocido como BandejitaPaisa" width="600" height="600" decoding="async"></div><div><h2 style="margin-bottom:.5em">Sobre mí</h2><p class="lead">Hola, soy Matthew, conocido en línea como BandejitaPaisa.</p><p class="lead">Me dedico al modelado 3D, la animación y la ilustración, y busco darle un estilo propio a cada proyecto.</p><p class="lead">Actualmente profundizo en los renders con Blender: experimento con iluminación, materiales, escenarios y distintas técnicas para mejorar con cada trabajo.</p><p class="lead">Este portafolio reúne una selección de mis proyectos y muestra cómo ha ido evolucionando mi estilo.</p><div class="pills"><div class="pill"><b>Modelado</b><small>Modelos 3D con detalle</small></div><div class="pill"><b>Animación</b><small>En formación constante</small></div><div class="pill"><b>Ilustración</b><small>Composiciones con estilo propio</small></div></div></div></div>${next(1)}`,
+"/modelos-3d":()=>head("Modelos 3D","Una selección de modelos tridimensionales y experimentos visuales, desarrollados con atención al detalle.",MODELS.length)+gal(MODELS,3)+next(2),
+"/renders":()=>head("Renders","Escenas donde la iluminación, los materiales y la composición dan vida a cada idea.",RENDERS.length)+gal(RENDERS,2)+next(3),
+"/animaciones-3d":()=>head("Animaciones 3D","Elige una animación, ajusta la velocidad y gira el modelo en este visor interactivo.")+`<section class="v3d" id="v3d" aria-label="Visor de animaciones 3D"></section>${next(4)}`,
+"/ilustraciones":()=>head("Ilustraciones","Composiciones e ideas visuales que reflejan mi estilo y mi evolución artística.",ILUS.length)+gal(ILUS,2)+next(5),
+"/opiniones":()=>head("Opiniones","Comentarios de las personas con las que he colaborado.")+`<div class="tgrid">${REVIEWS.map(p=>`<article class="tcard">${av(p)}<div><h3>${esc(p.name)}</h3><p>${esc(p.text)}</p>${workBtn(p)}</div></article>`).join("")}</div><section class="sec"><h3 class="sub">Equipos con los que he colaborado</h3><div class="studios">${STUDIOS.map(p=>`<div class="studio">${av(p)}<b>${esc(p.name)}</b></div>`).join("")}</div></section>`+next(6),
+"/contacto":()=>`<section class="ct-hero"><h2>Trabajemos juntos</h2><p class="lead">¿Tienes una idea o un proyecto en mente? Me encantará conocerlo. Estoy abierto a colaboraciones, encargos y nuevas oportunidades creativas.</p><p class="lead big">Hablemos de tu próximo proyecto.</p></section><div id="cb" class="cb"></div>`+next(7)
 };
-const lists={"/modelos-3d":MODELS,"/renders":RENDERS,"/ilustraciones":ILUS};
+const lists={"/":RENDERS,"/modelos-3d":MODELS,"/renders":RENDERS,"/ilustraciones":ILUS};
 /* ===== ROUTER ===== */
 let pvT=null;
 function route(){clearInterval(pvT);const h=(location.hash.replace(/^#/,"")||"/").split("?");if(window.Anim3D)window.Anim3D.destroy();let r=h[0]||"/";const hl=new URLSearchParams(h[1]||"").get("w");if(!views[r])r="/";
@@ -322,7 +395,7 @@ function route(){clearInterval(pvT);const h=(location.hash.replace(/^#/,"")||"/"
  $("#nl").innerHTML=PAGES.map(p=>`<li><a href="#${p.r}" ${p.r===r?'aria-current="page"':""}>${p.n}</a></li>`).join("");
  $("#nv").classList.remove("open");$("#bg").setAttribute("aria-expanded","false");
  window.scrollTo(0,0);
- if(r==="/animaciones-3d")mountViewer();if(r==="/")previewViewer();
+ if(r==="/animaciones-3d")mountViewer();if(r==="/")previewViewer();reveal();
  const L=lists[r];
  if(L)document.querySelectorAll(".work[data-i]").forEach(b=>b.onclick=()=>open(L,+b.dataset.i,b));
  if(hl){const c=document.querySelector('.work[data-id="'+hl+'"]');if(c){c.classList.add("hl");requestAnimationFrame(()=>c.scrollIntoView({block:"center",behavior:"smooth"}));setTimeout(()=>c.classList.remove("hl"),7000)}}}
@@ -363,11 +436,33 @@ const MUSIC=encodeURI("assets/Radiohead - Creep.mp3"),VOLUME=0.1;
 const song=new Audio(MUSIC);song.loop=true;song.volume=VOLUME;song.preload="auto";
 document.body.style.overflow="hidden";$("#ge").focus();
 $("#ge").onclick=()=>{song.play().catch(()=>{});$("#gate").classList.add("out");document.body.style.overflow=""};
-$("#mt").onclick=()=>{song.muted=!song.muted;const m=song.muted,b=$("#mt");b.classList.toggle("is-muted",m);b.setAttribute("aria-pressed",m);const t=m?"Activar sonido":"Silenciar música";b.setAttribute("aria-label",t);b.title=t};
+/* reproductor */
+const pl=$("#pl"),ps=$("#ps"),vl=$("#vl"),pp=$("#pp"),mt=$("#mt");
+const fmt=s=>isFinite(s)?Math.floor(s/60)+":"+String(Math.floor(s%60)).padStart(2,"0"):"0:00";
+const fill=(el,v)=>el.style.setProperty("--p",v+"%");
+vl.value=VOLUME*100;
+const syncPlay=()=>{const p=!song.paused;pl.classList.toggle("on",p);pp.classList.toggle("is-play",p);const t=p?"Pausar":"Reproducir";pp.setAttribute("aria-label",t);pp.title=t};
+const syncVol=()=>{const m=song.muted||song.volume===0;mt.classList.toggle("is-muted",m);mt.setAttribute("aria-pressed",m);const t=m?"Activar sonido":"Silenciar";mt.setAttribute("aria-label",t);mt.title=t;fill(vl,song.muted?0:vl.value)};
+song.addEventListener("play",syncPlay);song.addEventListener("pause",syncPlay);
+song.addEventListener("loadedmetadata",()=>$("#pd").textContent=fmt(song.duration));
+song.addEventListener("timeupdate",()=>{if(!song.duration)return;ps.value=song.currentTime/song.duration*100;fill(ps,ps.value);$("#pt").textContent=fmt(song.currentTime)});
+pp.onclick=()=>song.paused?song.play().catch(()=>{}):song.pause();
+ps.oninput=()=>{if(song.duration)song.currentTime=ps.value/100*song.duration;fill(ps,ps.value)};
+vl.oninput=()=>{song.volume=vl.value/100;song.muted=false;syncVol()};
+mt.onclick=()=>{song.muted=!song.muted;syncVol()};
+const tg=()=>{const m=pl.classList.toggle("min");$("#pc").setAttribute("aria-expanded",!m)};
+$("#pc").onclick=()=>{if(pl.classList.contains("min"))tg()};$("#px").onclick=tg;
+if(innerWidth<700)tg();
+syncPlay();syncVol();fill(ps,0);
+if("mediaSession" in navigator&&window.MediaMetadata)navigator.mediaSession.metadata=new MediaMetadata({title:"Creep",artist:"Radiohead",artwork:[{src:"assets/crep.png"}]});
+/* animaciones: aparición al hacer scroll y burbujas */
+const rio="IntersectionObserver" in window?new IntersectionObserver(es=>es.forEach(e=>{if(e.isIntersecting){e.target.classList.add("in");rio.unobserve(e.target)}}),{rootMargin:"0px 0px -6% 0px"}):null;
+function reveal(){document.querySelectorAll(".pg-h,.hero>:not(h1),.marq,.sec-h,.card,.work,.tcard,.pill,.studio,.about>*,.ct-hero>*,.cb,.next").forEach((el,i)=>{el.classList.add("rv");el.style.setProperty("--d",(i%6)*70+"ms");rio?rio.observe(el):el.classList.add("in")})}
+{const bu=$("#bubs");for(let i=0;i<16;i++){const b=document.createElement("i"),s=6+Math.random()*22;b.className="bub";b.style.cssText=`left:${Math.random()*100}%;width:${s}px;height:${s}px;animation-duration:${14+Math.random()*16}s;animation-delay:${-Math.random()*20}s;--x:${Math.random()*80-40}px`;bu.appendChild(b)}}
 $("#bg").onclick=()=>{const o=$("#nv").classList.toggle("open");$("#bg").setAttribute("aria-expanded",o)};
 $("#xl").href=SOCIAL_LINKS.x;
 $("#dc").onclick=async()=>{const b=$("#dc"),t="Discord: "+SOCIAL_LINKS.discord;try{await navigator.clipboard.writeText(SOCIAL_LINKS.discord);b.textContent="¡Usuario copiado!"}catch(e){b.textContent=SOCIAL_LINKS.discord}setTimeout(()=>b.textContent=t,2200)};
-$("#cp").textContent=`© ${new Date().getFullYear()} Bandejitaapaisaa. Todos los derechos reservados.`;
+$("#cp").textContent=`© ${new Date().getFullYear()} BandejitaPaisa. Todos los derechos reservados.`;
 route();
 </script>
 </body>
